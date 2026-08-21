@@ -1,4 +1,4 @@
-# CWM SMS program landing (Twilio website field)
+﻿# CWM SMS program landing (Twilio website field)
 
 Static HTML for TCR/Twilio website crawl: `id=sms-opt-in`, START / STOP / HELP, phone **+1 619-914-6819**, privacy/terms on **legal.carwashmgmt.com**. **Zero** links to `www.carwashmgmt.com`.
 
@@ -12,10 +12,12 @@ Same entity as today: **Car Wash Services LLC d/b/a Car Wash Management** (FEIN 
 
 Repo: `andrewbwm275/cwm-sms-program` → GitHub Pages (branch `main` / root).
 
+**CNAME file is intentionally not in the repo yet** (Pages auto-binds it and breaks github.io while `sms` NXDOMAIN). After GoDaddy Saves `sms`, AI adds root file `CNAME` with `sms.carwashmgmt.com` and binds Pages.
+
 | Step | Who | Action |
 |---|---|---|
-| 1 | Andrew | GoDaddy DNS → Add/edit **CNAME** host `sms` → `andrewbwm275.github.io` (TTL ½ Hour). **Save** (+ SMS 2FA if prompted). Leave `legal` alone. Do **not** invent a new Brand. |
-| 2 | Andrew or AI | GitHub repo **Settings → Pages → Custom domain** = `sms.carwashmgmt.com` → Save → wait DNS check → **Enforce HTTPS**. |
+| 1 | Andrew | GoDaddy DNS → Add **CNAME** host `sms` → `andrewbwm275.github.io` (TTL ½ Hour). **Save** (+ SMS 2FA if prompted). Leave `legal` alone. Do **not** invent a new Brand. |
+| 2 | Andrew or AI | After NS shows `sms` → `andrewbwm275.github.io`: add repo `CNAME` = `sms.carwashmgmt.com`, push; GitHub **Settings → Pages → Custom domain** `sms.carwashmgmt.com` → Save → DNS check green → **Enforce HTTPS**. |
 | 3 | AI | Verify `https://sms.carwashmgmt.com/` 200, cert CN includes `sms.carwashmgmt.com`, View Source has START/STOP/HELP + `id="sms-opt-in"`, zero `www.carwashmgmt` strings. Then Twilio Website field can use this URL. **Do not POST Twilio from this packet unless Jarvis asks.** |
 
 ### Exact GoDaddy DNS (matches legal)
